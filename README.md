@@ -9,31 +9,31 @@
 
 Para este proyecto se utilizó una base de datos no relacional, específicamente MongoDB. Para poder ejecutar el proyecto es necesario tener instalado MongoDB en el equipo.
 
-De acuerdo a los requerimientos de la prueba técnica, se estructuró una colección llamada `ordenes`, que almacena los datos de las órdenes y sus productos asociados.
+De acuerdo a los requerimientos de la prueba técnica, se estructuró una colección llamada `orders`, que almacena los datos de las órdenes y sus productos asociados.
 
 La estructura de la colección es la siguiente:
 
 ```json
 {
     "_id": "ObjectId",
-    "direccion_recoleccion": "String",
-    "fecha_programada": "Date",
-    "nombres": "String",
-    "apeliidos": "String",
-    "correo_electronico": "String",
-    "telefono": "String",
-    "direccion_destinarario": "String",
-    "departamento": "String",
-    "municipio": "String",
-    "punto_referencia": "String",
-    "indicaciones": "String",
-    "bultos": [
+    "collectionAddress": "String",
+    "scheduledDate": "Date",
+    "firstName": "String",
+    "lastName": "String",
+    "email": "String",
+    "phone": "String",
+    "recipientAddress": "String",
+    "department": "String",
+    "municipality": "String",
+    "referencePoint": "String",
+    "instructions": "String",
+    "packages": [
         {
-            "contenido": "String",
-            "peso_libras": "Number",
-            "ancho_cm": "Number",
-            "alto_cm": "Number",
-            "largo_cm": "Number"
+            "content": "String",
+            "weightPounds": "Number",
+            "width": "Number",
+            "height": "Number",
+            "length": "Number"
         }
     ]
 }

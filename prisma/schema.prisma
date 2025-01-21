@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URI")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Order {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  collectionAddress String
+  scheduledDate     DateTime
+  firstName         String
+  lastName          String
+  email             String
+  phone             String
+  recipientAddress  String
+  department        String
+  municipality      String
+  referencePoint    String
+  instructions      String
+  packages          Package[]
+}
+
+model Package {
+  content         String
+  weightPounds    Number
+  weight          Number
+  height          Number
+  length          Number
+}
