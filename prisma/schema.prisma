@@ -8,25 +8,28 @@ generator client {
 }
 
 model Order {
-  id                String   @id @default(auto()) @map("_id") @db.ObjectId
-  collectionAddress String
-  scheduledDate     DateTime
-  firstName         String
-  lastName          String
-  email             String
-  phone             String
-  recipientAddress  String
-  department        String
-  municipality      String
-  referencePoint    String
-  instructions      String
-  packages          Package[]
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  collectionAddress  String
+  scheduledDate      DateTime
+  firstName          String
+  lastName           String
+  email              String
+  phone              String
+  recipientAddress   String
+  department         String
+  municipality       String
+  referencePoint     String
+  instructions       String
+  packages           Package[]
 }
 
 model Package {
-  content         String
-  weightPounds    Number
-  weight          Number
-  height          Number
-  length          Number
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  content      String
+  weightPounds String
+  width        String
+  height       String
+  length       String
+  orderId      String  @db.ObjectId
+  order        Order   @relation(fields: [orderId], references: [id])
 }

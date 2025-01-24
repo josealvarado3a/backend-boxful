@@ -2,7 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getApp() {
+    return (
+      JSON.stringify({ message: 'BoxFul API is running' })
+    )
   }
 }

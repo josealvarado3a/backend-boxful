@@ -30,10 +30,10 @@ La estructura de la colección es la siguiente:
     "packages": [
         {
             "content": "String",
-            "weightPounds": "Number",
-            "width": "Number",
-            "height": "Number",
-            "length": "Number"
+            "weightPounds": "String",
+            "width": "String",
+            "height": "String",
+            "length": "String"
         }
     ]
 }
@@ -44,15 +44,22 @@ La estructura de la colección es la siguiente:
 Para poder ejecutar el proyecto es necesario crear un archivo `.env` en la raíz del proyecto con las siguientes variables de entorno:
 
 ```env
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017/ordenes
+MONGODB_URI=mongodb://localhost:27017/database-boxful
 ```
+### 3. Sincronizar la base de datos
 
-## 3. Ejecutar el proyecto
+Para sincronizar la base de datos con el modelo de datos, es necesario ejecutar el siguiente comando:
+
+```bash
+npx prisma db push
+```
+Este comando sincronizará el esquema de Prisma (schema.prisma) con la base de datos de MongoDB.
+
+## 4. Ejecutar el proyecto
 
 1. Clonar el repositorio:
 ```bash
-git clone
+git clone <URL_DEL_REPOSITORIO>
 ```
 
 2. Instalar las dependencias:
@@ -64,3 +71,9 @@ npm install
 ```bash
 npm run start:dev
 ```
+
+4. Abrir el navegador y acceder a la siguiente URL:
+```
+http://localhost:3050
+```
+Se establecio el puerto 3050 en `main.ts` para el servidor de NestJS para evitar conflictos con el puerto del proyecto frontend.
